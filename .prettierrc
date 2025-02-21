@@ -1,5 +1,7 @@
 {
-  "plugins": ["@ianvs/prettier-plugin-sort-imports"],
+  "plugins": [
+    "@ianvs/prettier-plugin-sort-imports"
+  ],
   "semi": true,
   "singleQuote": true,
   "tabWidth": 2,
@@ -11,9 +13,6 @@
     "",
     "^@webentorCore",
     "^@webentorCore/(.*)$",
-    "",
-    "^@gutenberg",
-    "^@gutenberg/(.*)$",
     "",
     "^@scripts",
     "^@scripts/(.*)$",
