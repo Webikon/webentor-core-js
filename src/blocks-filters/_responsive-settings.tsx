@@ -1,3 +1,7 @@
+/**
+ * DEPRECATED: Use `@webentorCore/block-filters/responsive-settings` instead
+ */
+
 import { registerBlockExtension } from '@10up/block-components';
 import {
   store as blockEditorStore,
