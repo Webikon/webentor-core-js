@@ -6,7 +6,12 @@ import { __ } from '@wordpress/i18n';
 
 import { WebentorTypographyPickerSelect } from '../blocks-components';
 
-const BLOCKS = ['core/paragraph', 'core/heading', 'core/list', 'core/post-title'];
+const BLOCKS = [
+  'core/paragraph',
+  'core/heading',
+  'core/list',
+  'core/post-title',
+];
 
 /**
  * BlockEdit

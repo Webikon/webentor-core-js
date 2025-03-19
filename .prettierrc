@@ -13,6 +13,8 @@
     "",
     "^@webentorCore",
     "^@webentorCore/(.*)$",
+    "^@src",
+    "^@src/(.*)$",
     "",
     "^@scripts",
     "^@scripts/(.*)$",

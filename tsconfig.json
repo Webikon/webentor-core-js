@@ -13,7 +13,8 @@
     "noFallthroughCasesInSwitch": true,
     "outDir": "dist",
     "paths": {
-      "@src/*": ["./src/*"]
+      "@src/*": ["./src/*"],
+      "@webentorCore/*": ["./src/*"]
     },
     "skipLibCheck": true
   },
