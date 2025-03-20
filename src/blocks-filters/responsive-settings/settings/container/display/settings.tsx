@@ -3,6 +3,7 @@ import { SelectControl } from '@wordpress/components';
 import { Fragment } from '@wordpress/element';
 
 import { BlockPanelProps } from '@webentorCore/block-filters/responsive-settings/types';
+import { camelize } from '@src/_utils';
 
 import { DisabledSliderInfo } from '../../../components/DisabledSliderInfo';
 import { isSliderEnabledForBreakpoint, setImmutably } from '../../../utils';
@@ -39,8 +40,9 @@ export const DisplaySettings = ({
       {displayProperties.map((property) => {
         // Check if block supports all properties, meaning its set to true
         if (supports !== true) {
+          const propertyCamel = camelize(property.name); // Supports is defined in camelCase
           // Check if block supports specific property, e.g. only "display" or "height" is supported
-          if (supports?.[property.name] !== true) {
+          if (supports?.[propertyCamel] !== true) {
             return null;
           }
         }
