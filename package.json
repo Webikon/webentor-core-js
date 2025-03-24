@@ -2,7 +2,7 @@
   "name": "webentor-core-js",
   "description": "Core JS functionality and useful utilities for Webentor Stack.",
   "homepage": "https://webikon.sk",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "license": "MIT",
   "author": "Webikon s.r.o.",
   "maintainers": [
