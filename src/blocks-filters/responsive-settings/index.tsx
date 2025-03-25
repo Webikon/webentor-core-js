@@ -36,24 +36,25 @@ const initResponsiveSettings = () => {
         includedBlocks['display'].includes(name) ||
         settings?.supports?.webentor?.display
       ) {
+        const displaySupport =
+          settings?.supports?.webentor?.display === true ||
+          settings?.supports?.webentor?.display?.display === true;
+
         settings.attributes = {
           ...settings.attributes,
           ...{
             display: {
               type: 'object',
-              default: settings.attributes?.display?.default || {
-                // Default display is FLEX
-                ...(settings?.supports?.webentor?.display === true
-                  ? {
-                      display: {
-                        value: {
-                          basic: 'flex',
-                        },
-                      },
-                    }
-                  : {}),
+              default: {
+                ...settings?.attributes?.display?.default,
+                display: {
+                  value: {
+                    // Default display is FLEX
+                    ...(displaySupport ? { basic: 'flex' } : {}),
+                    ...settings?.attributes?.display?.default?.display?.value,
+                  },
+                },
               },
-              blockName: name,
             },
           },
         };
