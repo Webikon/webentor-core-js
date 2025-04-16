@@ -6,6 +6,7 @@ import {
   TextControl,
   ToggleControl,
 } from '@wordpress/components';
+import { applyFilters } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -83,7 +84,7 @@ export const WebentorButton = (props) => {
     setAttributes({ [obj]: tempObj });
   }
 
-  const variants = [
+  const variants = applyFilters('webentor.core.button.variants', [
     {
       slug: 'primary',
       label: __('Primary', 'webentor'),
@@ -93,16 +94,12 @@ export const WebentorButton = (props) => {
       label: __('Secondary', 'webentor'),
     },
     {
-      slug: 'grey-primary',
-      label: __('Grey Primary', 'webentor'),
+      slug: 'tertiary',
+      label: __('Tertiary', 'webentor'),
     },
-    {
-      slug: 'grey-secondary',
-      label: __('Grey Secondary', 'webentor'),
-    },
-  ];
+  ]);
 
-  const sizes = [
+  const sizes = applyFilters('webentor.core.button.sizes', [
     {
       slug: 'small',
       label: __('Small', 'webentor'),
@@ -115,7 +112,7 @@ export const WebentorButton = (props) => {
       slug: 'large',
       label: __('Large', 'webentor'),
     },
-  ];
+  ]);
 
   const variant = attributes[attributeName]?.variant
     ? attributes[attributeName]?.variant
