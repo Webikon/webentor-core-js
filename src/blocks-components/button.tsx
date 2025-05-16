@@ -67,7 +67,6 @@ export const WebentorButton = (props) => {
     placement,
     className,
     innerClassName,
-    buttonClassName,
     hideVariant,
     hideSize,
     hideLink,
@@ -84,6 +83,12 @@ export const WebentorButton = (props) => {
     setAttributes({ [obj]: tempObj });
   }
 
+  const buttonClassName = applyFilters(
+    'webentor.core.button.className',
+    props.buttonClassName,
+    props,
+  ) as string;
+
   const variants = applyFilters('webentor.core.button.variants', [
     {
       slug: 'primary',
@@ -97,7 +102,7 @@ export const WebentorButton = (props) => {
       slug: 'tertiary',
       label: __('Tertiary', 'webentor'),
     },
-  ]);
+  ]) as { slug: string; label: string }[];
 
   const sizes = applyFilters('webentor.core.button.sizes', [
     {
@@ -112,7 +117,14 @@ export const WebentorButton = (props) => {
       slug: 'large',
       label: __('Large', 'webentor'),
     },
-  ]);
+  ]) as { slug: string; label: string }[];
+
+  // This hook allows us to extend button with additional components, settings, etc.
+  const ExtensionComponent = applyFilters(
+    'webentor.core.button.extensionComponent',
+    <></>,
+    props,
+  ) as React.ReactNode;
 
   const variant = attributes[attributeName]?.variant
     ? attributes[attributeName]?.variant
@@ -219,6 +231,8 @@ export const WebentorButton = (props) => {
                 })}
               </div>
             )}
+
+            {ExtensionComponent}
 
             {!hideLink && (
               <>
